@@ -5,13 +5,13 @@
 //  Created by Mac on 09/08/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct PokemonList: View {
     @State var pokemon = [PokemonEntry]()
     @State var searchText = ""
     var body: some View {
-        
+
             List {
                 ForEach(searchText == "" ? pokemon : pokemon.filter( {
                     $0.name.contains(searchText.lowercased())
@@ -35,9 +35,9 @@ struct PokemonList: View {
                 //    self.pokemon = pokemon
               //  }
             }
-            
+
             .padding(0)
-        
+
         }
 }
 
@@ -46,3 +46,4 @@ struct PokemonList_Previews: PreviewProvider {
         PokemonList()
     }
 }
+*/

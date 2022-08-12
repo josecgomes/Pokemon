@@ -13,22 +13,22 @@ struct ContentView: View {
     @State private var showPokemonBatleHistoric = false
     
     var body: some View {
-        NavigationView{
+     NavigationView{
             VStack {
                 Button(action: { showPokemonListView = true }) {
                     Text("Lista Pokemons")
                 }
-                NavigationLink("", destination: PokemonList(), isActive: $showPokemonListView)
+                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonListView)
                 
                 Button(action:  { showPokemonBattle = true }) {
                     Text("Batalha")
                 }
-                NavigationLink("", destination: PokemonList(), isActive: $showPokemonBattle)
+                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonBattle)
                 
                 Button(action:  { showPokemonBatleHistoric = true }) {
                     Text("Histórico de Batalhas")
                 }
-                NavigationLink("", destination: PokemonList(), isActive: $showPokemonBatleHistoric)
+                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonBatleHistoric)
         }
         
     }
