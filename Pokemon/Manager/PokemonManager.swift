@@ -11,7 +11,7 @@ class PokemonManager {
     
     func getPokemon() -> [PokemonEntry] {
         let data: PokemonInfo = Bundle.main.decode(file:"pokemon.json")
-        let pokemon : [PokemonEntry] = data.results
+        let pokemon: [PokemonEntry] = data.results
         
         return pokemon
     }
