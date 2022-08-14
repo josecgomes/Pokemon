@@ -19,6 +19,7 @@ struct PokemonDetailView: View {
     @State private var progress = 100.0
     @State private var progress_enemy = 100.0
     @State private var attackDisabled = false
+    @State private var showAlert =  false
 
         
     var body: some View {
@@ -44,7 +45,7 @@ struct PokemonDetailView: View {
                 .scaleEffect(0.5,anchor: .center)
 
         }
-       // .padding()
+        .padding()
         .position(x: 100, y: 0)
         
 
@@ -72,7 +73,7 @@ struct PokemonDetailView: View {
                 
 
         }
-       // .padding()
+        .padding()
         .position(x: 270, y: 40)
         
         
@@ -86,10 +87,11 @@ struct PokemonDetailView: View {
                     progress -=  Double.random(in: 0..<20)
                     attackDisabled = false
                 }
+                    
             }).disabled(attackDisabled)
             
         }
-        //.padding()
+        .padding()
         .position(x: 190, y: 80)
     }
     
