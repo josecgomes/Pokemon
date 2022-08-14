@@ -18,7 +18,7 @@ struct ContentView: View {
                 Button(action: { showPokemonListView = true }) {
                     Text("Lista Pokemons")
                 }
-                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonListView)
+                NavigationLink("", destination: PokemonList(), isActive: $showPokemonListView)
                 
                 Button(action:  { showPokemonBattle = true }) {
                     Text("Batalha")

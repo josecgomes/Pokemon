@@ -60,7 +60,7 @@ class ViewModel: ObservableObject {
     func getDetailsAtack(id: Int) -> Int {
         pokemonManager.getDetailedPokemon(id: id) { data in
             DispatchQueue.main.async {
-                self.pokemonDetailsAtack = data.stats[1].base_stat
+                self.pokemonDetailsAtack = data.stats[1].effort
             }
         }
         
