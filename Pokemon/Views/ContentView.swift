@@ -8,35 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showPokemonListView = false
-    @State private var showPokemonBattle = false
-    @State private var showPokemonBatleHistoric = false
     
-    var body: some View {
-     NavigationView{
-            VStack {
-                Button(action: { showPokemonListView = true }) {
-                    Text("Lista Pokemons")
-                }
-                NavigationLink("", destination: PokemonList(), isActive: $showPokemonListView)
-                
-                Button(action:  { showPokemonBattle = true }) {
-                    Text("Batalha")
-                }
-                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonBattle)
-                
-                Button(action:  { showPokemonBatleHistoric = true }) {
-                    Text("Histórico de Batalhas")
-                }
-                NavigationLink("", destination: PokemonListView(), isActive: $showPokemonBatleHistoric)
-        }
-        
-    }
-}
+    
+@StateObject var vm = ViewModel()
+    
+private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
+                 var body: some View {
+                     NavigationView {
+                         ScrollView {
+                             LazyVGrid(columns: adaptiveColumns, spacing: 10){
+                                 ForEach(vm.filteredPokemon) { pokemon in
+                                     
+                                     NavigationLink(destination: ContentViewEnemy(mypokemon: pokemon,mynumero: vm.getPokemonIndex(pokemon: pokemon))
+                                     ) {
+                                         PokemonView(pokemon: pokemon)
+                                     }
+                                 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        }
-    }
-}
+                             }
+                             .animation(.easeInOut(duration: 0.3), value: vm.filteredPokemon.count)
+                             .navigationTitle("Escolha o seu Pokemon")
+                             .navigationBarTitleDisplayMode(.inline)
+                         }
+                         .searchable(text: $vm.searchText)
+                     }
+                     .environmentObject(vm)
+                 }
+             }
